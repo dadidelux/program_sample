@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python:*)",
+      "Bash(del inspect_excel.py check_output.py)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
