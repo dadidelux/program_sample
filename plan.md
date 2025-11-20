@@ -17,13 +17,32 @@
 - Validate file formats and column structures
 - Handle missing data with `pd.notna()` and `pd.isna()`
 
-### Step 2: Merge CSV Files
+### Step 2: Merge CSV Files and Standardize Column Names
 - Use `pd.concat()` to combine SUB1 and SUB2 dataframes vertically
 - Remove duplicates using `drop_duplicates(subset=['OID'], keep='first')`
-- Reset index to ensure continuous numbering
-- **Output**: `Final/SUB1-SUB2 115kV.csv`
+- **Rename CSV columns to match Excel naming convention** (Excel is source of truth):
+  - `AMP Rating` → `High Rating`
+  - `High KV` → `High kV` (and similar for Low/Tertiary)
+- **Add Excel-only columns** to the merged dataframe:
+  - `Low Rating`, `Low Rating.1`, `Low Rating.2`, `Low Rating.3`
+  - `Line Number`
+  - `Type of Change`
+- **Retain CSV-only columns** that don't exist in Excel:
+  - `Group`, `T-Line Name`, `High Rating.4`, etc.
+- **Output**: `Final/SUB1-SUB2 115kV.csv` (with standardized column names)
 
-### Step 3: Cross-Reference with TLS File
+### Step 3: Update with Excel Data (Source of Truth)
+- For each component in merged data:
+  - Find matching component in Excel using matching strategy (see below)
+  - If match found: Compare all fields and update with Excel values
+  - If no match: Retain CSV data as-is
+- Populate Excel-only columns (Low Rating, Line Number, etc.) from matched rows
+- Add `Mismatch` column: "Yes" if any field was updated, "No" if data matches
+- Add `Type of Change` column: List which columns were updated
+- **Output**:
+  - `Final/SUB1-SUB2 115kV_highlighted.csv` (with Mismatch column)
+  - `Final/SUB1-SUB2 115kV_updated.csv` (same as highlighted, fully updated with Excel data)
+
 **Matching Strategy** (hierarchical):
 1. **Primary Match**: Match by OID column
    - If `OID` is not NaN and exists in both files
@@ -31,66 +50,18 @@
    - Match by `Station Name` + `Component Description`
    - If `Additional Information` is present, use it for additional matching
 
-**Implementation**:
-```python
-def match_component(row, tls_df):
-    # Try OID first
-    if pd.notna(row['OID']):
-        oid_match = tls_df[tls_df['OID'] == row['OID']]
-        if not oid_match.empty:
-            return oid_match.iloc[0]
-
-    # Fallback to Station Name + Description
-    station_match = tls_df[tls_df['Station Name'] == row['Station Name']]
-    if not station_match.empty:
-        desc_match = station_match[
-            station_match['Component Description'] == row['Component Description']
-        ]
-        if not desc_match.empty:
-            return desc_match.iloc[0]
-
-    return None
-```
-
-### Step 4: Highlight Mismatches
-- Add new column `Mismatch` to merged dataframe
-- For each component:
-  - Find matching TLS component using the matching strategy
-  - Compare all fields between merged and TLS data
-  - Mark as `"Yes"` if any field differs
-  - Mark as `"No"` if all fields match or component not in TLS
-- **Output**: `Final/SUB1-SUB2 115kV_highlighted.csv`
-
 **Comparison Logic**:
-```python
-def compare_rows(merged_row, tls_row):
-    differences = []
-    for col in merged_row.index:
-        merged_val = merged_row[col]
-        tls_val = tls_row.get(col)
+- Since columns are now standardized to Excel naming, direct column comparison is possible
+- Compare all columns that exist in both datasets
+- Handle NaN values properly (two NaN values are considered equal)
+- String values are compared after trimming whitespace
 
-        # Handle NaN comparisons
-        if not (pd.isna(merged_val) and pd.isna(tls_val)):
-            if str(merged_val).strip() != str(tls_val).strip():
-                differences.append((col, merged_val, tls_val))
-
-    return differences
-```
-
-### Step 5: Update Combined File
-- Add new column `Type of Change`
-- For each mismatched component that exists in TLS:
-  - Update the incorrect/missing fields with TLS data
-  - Record which columns were updated in `Type of Change`
-  - Track all changes for the summary report
-- **Output**: `Final/SUB1-SUB2 115kV_updated.csv`
-
-### Step 6: Generate Summary Report
+### Step 4: Generate Summary Report
 Create a detailed change log with:
 - **OID**: Component identifier
 - **Column(s) updated**: Which field was changed
-- **Old Value**: Original value from merged CSV
-- **New Value**: Updated value from TLS
+- **Old Value**: Original value from CSV
+- **New Value**: Updated value from Excel (source of truth)
 
 **Output**: `Final/SUB1-SUB2 115kV_summary_report.csv`
 
@@ -98,10 +69,17 @@ Create a detailed change log with:
 
 All files saved to `Final/` directory:
 
-1. ✅ **SUB1-SUB2 115kV.csv** - Original combined data from both substations
-2. ✅ **SUB1-SUB2 115kV_highlighted.csv** - With Mismatch column added
-3. ✅ **SUB1-SUB2 115kV_updated.csv** - Final updated file with TLS corrections and Type of Change column
-4. ✅ **SUB1-SUB2 115kV_summary_report.csv** - Detailed change log
+1. ✅ **SUB1-SUB2 115kV.csv** - Combined data from both substations with:
+   - Standardized column names (Excel naming convention)
+   - Excel-only columns added (Low Rating, Line Number, etc.)
+   - CSV-only columns retained (Group, T-Line Name, etc.)
+2. ✅ **SUB1-SUB2 115kV_highlighted.csv** - Same as updated file (with Mismatch and Type of Change columns)
+3. ✅ **SUB1-SUB2 115kV_updated.csv** - Final file updated with Excel data (source of truth):
+   - All matching components updated with Excel values
+   - Excel-only columns populated from source
+   - Non-matching components retain CSV data
+   - Mismatch and Type of Change columns added
+4. ✅ **SUB1-SUB2 115kV_summary_report.csv** - Detailed change log (291 field updates across 23 components)
 
 ## Implementation Details
 
@@ -113,42 +91,50 @@ All files saved to `Final/` directory:
 ### Key Functions
 
 1. **load_csv_files()** - Load both substation CSV files
-2. **load_tls_file()** - Load TLS Excel file (CAISO Update sheet)
-3. **merge_csv_files()** - Combine and deduplicate CSV data
-4. **match_component()** - Find matching component in TLS using OID or fallback criteria
-5. **compare_rows()** - Compare two components and identify differences
-6. **add_mismatch_column()** - Add Mismatch column to identify discrepancies
-7. **update_with_tls_data()** - Update mismatched entries and track changes
-8. **generate_summary_report()** - Create change log DataFrame
+2. **load_tls_file()** - Load Excel file (CAISO Update sheet - source of truth)
+3. **merge_csv_files()** - Combine, deduplicate, rename columns to Excel convention, and add Excel-only columns
+4. **match_component()** - Find matching component in Excel using OID or fallback criteria
+5. **compare_rows()** - Compare two components and identify differences (after column standardization)
+6. **update_with_tls_data()** - Update all matched entries with Excel data and track changes
+7. **generate_summary_report()** - Create change log DataFrame
 
 ### Data Flow
 ```
 SUB1.csv  ──┐
-            ├──> merge_csv_files() ──> merged.csv ──> add_mismatch_column() ──> highlighted.csv
-SUB2.csv  ──┘                                  ↑                                      ↓
-                                               |                                      |
-TLS.xlsx ─────────────────────────────────────┴──────────────────> update_with_tls_data()
-                                                                                      ↓
-                                                                             updated.csv + summary_report.csv
+            ├──> merge_csv_files() ──> merged.csv ──────────┐
+SUB2.csv  ──┘    (standardize columns)                      │
+                 (add Excel-only cols)                      │
+                                                            ↓
+Excel.xlsx ──────────────────────────────────> update_with_tls_data()
+(source of truth)                                           ↓
+                                             ┌──────────────┴────────────┐
+                                             ↓                           ↓
+                                    highlighted.csv              summary_report.csv
+                                    updated.csv
+                                    (same file, both outputs)
 ```
 
 ### Handling Edge Cases
 1. **Missing OID**: Use fallback matching by Station Name + Component Description
 2. **NaN Values**: Properly handle NaN comparisons (two NaN values are considered equal)
-3. **Extra Columns in TLS**: Handle gracefully when TLS has columns not in merged data
-4. **Components Not in TLS**: Mark as "No" mismatch but don't update
-5. **Duplicate OIDs**: Keep first occurrence during merge
+3. **Column Name Mismatches**: Rename CSV columns to match Excel naming convention (source of truth)
+4. **Excel-only Columns**: Add columns that exist in Excel but not in CSV (Low Rating, Line Number, etc.)
+5. **CSV-only Columns**: Retain columns that exist in CSV but not in Excel (Group, T-Line Name, High Rating.4, etc.)
+6. **Components Not in Excel**: Retain CSV data as-is for components not found in Excel
+7. **Duplicate OIDs**: Keep first occurrence during merge
 
 ## Testing Results
 
 **Execution Summary**:
 - SUB1.csv: 15 rows loaded
 - SUB2.csv: 51 rows loaded
-- TLS file: 48 rows loaded
+- Excel file: 48 rows loaded (source of truth)
 - **Merged**: 66 total components (no duplicates found)
-- **Mismatches identified**: 23 components
-- **Components not in TLS**: 43 components
-- **Total field changes**: 271 changes across 23 components
+- **Column standardization**: 8 columns renamed to Excel convention
+- **Excel-only columns added**: 6 columns (Low Rating × 4, Line Number, Type of Change)
+- **Components updated with Excel data**: 23 components
+- **Components not in Excel** (CSV data retained): 43 components
+- **Total field changes**: 291 changes across 23 components
 
 ## How to Run
 
@@ -158,15 +144,47 @@ python merge_substation_data.py
 
 The script will:
 1. Create the `Final/` directory if it doesn't exist
-2. Process all files automatically
-3. Display progress and statistics
-4. Generate all 4 required output files
+2. Load and merge CSV files
+3. Standardize column names to Excel convention (source of truth)
+4. Add Excel-only columns to merged data
+5. Update all matched components with Excel data
+6. Retain CSV data for components not in Excel
+7. Display progress and statistics
+8. Generate all 4 required output files
 
 ## Notes and Considerations
 
-1. **Column Alignment**: The TLS Excel file has additional columns not present in the CSV files. The script handles this by only updating columns that exist in both datasets.
+1. **Column Standardization to Excel Convention**: The Excel file is the source of truth, so the script standardizes all column names to match Excel naming:
 
-2. **Data Types**: Some fields convert from integers to floats during the update process (e.g., OID: 163125 → 163125.0). This is normal pandas behavior.
+   **Rating Columns (renamed from CSV):**
+   - CSV `AMP Rating` → Excel `High Rating` ✓
+   - CSV `AMP Rating.1` → Excel `High Rating.1` ✓
+   - CSV `AMP Rating.2` → Excel `High Rating.2` ✓
+   - CSV `AMP Rating.3` → Excel `High Rating.3` ✓
+   - CSV `AMP Rating.4` → `High Rating.4` (retained, no Excel equivalent)
+
+   **Voltage Columns (renamed from CSV):**
+   - CSV `High KV` → Excel `High kV` ✓
+   - CSV `Low KV` → Excel `Low kV` ✓
+   - CSV `Tertiary KV` → Excel `Tertiary kV` ✓
+
+   **Excel-only Columns (added to merged data):**
+   - `Low Rating`, `Low Rating.1`, `Low Rating.2`, `Low Rating.3`
+   - `Line Number`
+   - `Type of Change`
+
+   **CSV-only Columns (retained in merged data):**
+   - `Group`, `T-Line Name`, `High Rating.4`, `MVA Rating`, `MVAr High`, `MVAr Low`, `Con`, etc.
+
+   **Rating Type Pattern:**
+   - Both files have 4 rating types with the pattern: Rating Type, High/AMP Rating, [Low Rating], Duration, Note #
+   - Rating Type: `SN (N)` - Summer Normal
+   - Rating Type.1: `SE (A)` - Summer Emergency
+   - Rating Type.2: `WN (B)` - Winter Normal
+   - Rating Type.3: `WE (C)` - Winter Emergency
+   - CSV files may have a 5th rating type (Rating Type.4) that doesn't exist in Excel
+
+2. **Data Types**: Some fields convert from integers to floats during the update process (e.g., OID: 163125 → 163125.0, AMP Rating: 2000 → 2000.0). This is normal pandas behavior.
 
 3. **Voltage Level**: The script is designed for 115 kV data specifically, as indicated by the TLS filename.
 
@@ -185,11 +203,15 @@ The script will:
 
 ## Conclusion
 
-The solution successfully implements all requirements of the programming scope assignment:
+The solution successfully implements all requirements with Excel as the source of truth:
 - ✅ Loads and merges CSV files
-- ✅ Cross-references with TLS Excel file
+- ✅ Standardizes column names to Excel convention (source of truth)
+- ✅ Adds Excel-only columns to merged data (Low Rating, Line Number, etc.)
+- ✅ Retains CSV-only columns not in Excel (Group, T-Line Name, etc.)
+- ✅ Cross-references with Excel file and updates all matched components
 - ✅ Identifies and highlights mismatches
-- ✅ Updates data from TLS source
+- ✅ Updates data from Excel source (source of truth)
+- ✅ Retains CSV data for components not found in Excel
 - ✅ Generates comprehensive summary report
 - ✅ Handles missing data carefully
 - ✅ Ensures no duplicates after merging

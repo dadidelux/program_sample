@@ -1,67 +1,67 @@
-OID,Station Name,Component Type,Component Description,Additional Information,High KV,Low KV,Tertiary KV,Units,Length,ISO Control,Group,T-Line Name,Rating Type,AMP Rating,Duration,Note #,Rating Type.1,AMP Rating.1,Duration.1,Note #.1,Rating Type.2,AMP Rating.2,Duration.2,Note #.2,Rating Type.3,AMP Rating.3,Duration.3,Note #.3,Rating Type.4,AMP Rating.4,MVA Rating,MVAr High,MVAr Low,Con,Duration.4,Note #.4,Mismatch
-163125,SUB1,DISC,1011,,115kV,,,AMPS,,Y,SUB1-SUB2,,SN (N),2000,0,,SE (A),2000,0,,WN (B),2000,0,,WE (C),2000,0,,,,,,,,,,Yes
-163127,SUB1,CB,1012,,115kV,,,AMPS,,Y,SUB1-SUB2,,SN (N),2000,0,,SE (A),2000,0,,WN (B),2000,0,,WE (C),2000,0,,,,,,,,,,Yes
-163126,SUB1,DISC,1013,,115kV,,,AMPS,,Y,SUB1-SUB2,,SN (N),2000,0,,SE (A),2000,0,,WN (B),2000,0,,WE (C),2000,0,,,,,,,,,,Yes
-163119,SUB1,DISC,1015,,115kV,,,AMPS,,Y,SUB1-SUB2,,SN (N),2000,0,,SE (A),2000,0,,WN (B),2000,0,,WE (C),2000,0,,,,,,,,,,No
-163128,SUB1,DISC,1025,,115kV,,,AMPS,,Y,SUB1-SUB2,,SN (N),2000,0,,SE (A),2000,0,,WN (B),2000,0,,WE (C),2000,0,,,,,,,,,,No
-163113,SUB1,DISC,1031,,115kV,,,AMPS,,Y,SUB1-SUB2,,SN (N),600,0,,SE (A),600,0,,WN (B),600,0,,WE (C),600,0,,,,,,,,,,Yes
-163114,SUB1,CB,1032,,115kV,,,AMPS,,Y,SUB1-SUB2,,SN (N),1200,0,,SE (A),1200,0,,WN (B),1200,0,,WE (C),1200,0,,,,,,,,,,Yes
-163112,SUB1,DISC,1033,,115kV,,,AMPS,,Y,SUB1-SUB2,,SN (N),600,0,,SE (A),600,0,,WN (B),600,0,,WE (C),600,0,,,,,,,,,,Yes
-163111,SUB1,DISC,1035,,115kV,,,AMPS,,Y,SUB1-SUB2,,SN (N),2000,0,,SE (A),2000,0,,WN (B),2000,0,,WE (C),2000,0,,,,,,,,,,Yes
-163109,SUB1,WTRP,SUB1-SUB2,,115kV,,,AMPS,,Y,SUB1-SUB2,,SN (N),2000,0,,SE (A),2000,0,,WN (B),2000,0,,WE (C),2000,0,,,,,,,,,,Yes
-163115,SUB1,CT,SUB1-SUB2 CB 1032,1200/5 set at 800*1 TRF,115kV,,,AMPS,,Y,SUB1-SUB2,SUB1-SUB2,SN (N),800,0,,SE (A),800,0,,WN (B),800,0,,WE (C),800,0,,,,,,,,,,Yes
-163116,SUB1,TERM,SUB1-SUB2 CB 1032,,115kV,,,AMPS,,Y,SUB1-SUB2,SUB1-SUB2,SN (N),600,0,11.0,SE (A),600,0,11.0,WN (B),600,0,11.0,WE (C),600,0,23.0,,,,,,,,,Yes
-163110,SUB1,COND,SUB1-SUB2 LINE TO WAVETRAP JUMPER,1-715.5-37 kcmil AAC - INTERIOR RATING,115kV,,,AMPS,,Y,SUB1-SUB2,SUB1-SUB2,SN (N),631,0,,SE (A),742,4,,WN (B),972,0,,WE (C),1039,4,,,,,,,,,,Yes
-187816,SUB1,BUS,115 kV MAIN BUS,715.5 kcmil AAC-Interior rating,115kV,,,AMPS,,Y,SUB1-SUB2,,SN (N),631,0,,SE (A),742,4,,WN (B),972,0,,WE (C),1039,4,,,,,,,,,,Yes
-187817,SUB1,CT,1012,1200/5 set at 400*2 TRF,115kV,,,AMPS,,Y,SUB1-SUB2,,SN (N),800,0,,SE (A),800,0,,WN (B),800,0,,WE (C),800,0,,,,,,,,,,No
-155171,SUB2,DISC,101,,115kV,,,AMPS,,Y,,,SN (N),2000,0,,SE (A),2000,0,,WN (B),2000,0,,WE (C),2000,0,,,,,,,,,,No
-96654,SUB2,CB,102,,115kV,,,AMPS,,Y,,,SN (N),2000,0,,SE (A),2000,0,,WN (B),2000,0,,WE (C),2000,0,,,,,,,,,,No
-155172,SUB2,DISC,103,,115kV,,,AMPS,,Y,,,SN (N),2000,0,,SE (A),2000,0,,WN (B),2000,0,,WE (C),2000,0,,,,,,,,,,No
-155173,SUB2,DISC,107,,115kV,,,AMPS,,Y,,,SN (N),2000,0,,SE (A),2000,0,,WN (B),2000,0,,WE (C),2000,0,,,,,,,,,,No
-182003,SUB2,BUS,115 KV BUS 2,"2"" IPS CU - INTERIOR RATING",115kV,,,AMPS,,Y,SUB1-SUB2,,SN (N),1770,0,,SE (A),2235,4,,WN (B),2445,0,,WE (C),2805,4,,,,,,,,,,Yes
-173428,SUB2,BUS,115 KV Bus 1,"2"" IPS CU - INTERIOR RATING",115kV,,,AMPS,,Y,SUB1-SUB2,,SN (N),1770,0,,SE (A),2235,4,,WN (B),2445,0,,WE (C),2805,4,,,,,,,,,,Yes
-96655,SUB2,CB,132,,115kV,,,AMPS,,Y,SUB1-SUB2,,SN (N),2000,0,,SE (A),2000,0,,WN (B),2000,0,,WE (C),2000,0,,,,,,,,,,Yes
-155179,SUB2,DISC,133,,115kV,,,AMPS,,Y,SUB1-SUB2,,SN (N),2000,0,,SE (A),2000,0,,WN (B),2000,0,,WE (C),2000,0,,,,,,,,,,Yes
-155180,SUB2,DISC,135,,115kV,,,AMPS,,Y,SUB1-SUB2,,SN (N),2000,0,,SE (A),2000,0,,WN (B),2000,0,,WE (C),2000,0,,,,,,,,,,Yes
-155181,SUB2,DISC,137,,115kV,,,AMPS,,Y,SUB1-SUB2,,SN (N),600,0,,SE (A),600,0,,WN (B),600,0,,WE (C),600,0,,,,,,,,,,Yes
-155182,SUB2,DISC,139,,115kV,,,AMPS,,Y,SUB1-SUB2,,SN (N),600,0,,SE (A),600,0,,WN (B),600,0,,WE (C),600,0,,,,,,,,,,Yes
-170128,SUB2,DISC,17,,60kV,,,AMPS,,Y,,,SN (N),3000,0,,SE (A),3000,0,,WN (B),3000,0,,WE (C),3000,0,,,,,,,,,,No
-166697,SUB2,COND,BK 1 - DISC 171 To XFMR BK 1 LS,1-1113 AAC - COMPRESSION - INTERIOR RATING,115kV,,,AMPS,,Y,,,SN (N),975,0,,SE (A),1101,4,,WN (B),1378,0,,WE (C),1460,4,,,,,,,,,,No
-166692,SUB2,COND,BK 1 - DISC 173 To DISC 177 & DISC 179,"3/4"" CU TUBE SCH 40 - INTERIOR RATING",115kV,,,AMPS,,Y,,,SN (N),725,0,,SE (A),915,4,,WN (B),1005,0,,WE (C),1150,4,,,,,,,,,,No
-170129,SUB2,DISC,19,,60kV,,,AMPS,,Y,,,SN (N),3000,0,,SE (A),3000,0,,WN (B),3000,0,,WE (C),3000,0,,,,,,,,,,No
-96675,SUB2,CB,412,,230kV,,,AMPS,,Y,,,SN (N),2000,0,,SE (A),2000,0,,WN (B),2000,0,,WE (C),2000,0,,,,,,,,,,No
-155236,SUB2,DISC,413,,230kV,,,AMPS,,Y,,,SN (N),1600,0,,SE (A),1600,0,,WN (B),1600,0,,WE (C),1600,0,,,,,,,,,,No
-155237,SUB2,DISC,417,,230kV,,,AMPS,,Y,,,SN (N),1200,0,,SE (A),1200,0,,WN (B),1200,0,,WE (C),1200,0,,,,,,,,,,No
-96676,SUB2,CB,452,,230kV,,,AMPS,,Y,,,SN (N),2000,0,,SE (A),2000,0,,WN (B),2000,0,,WE (C),2000,0,,,,,,,,,,No
-155238,SUB2,DISC,453,,230kV,,,AMPS,,Y,,,SN (N),1600,0,,SE (A),1600,0,,WN (B),1600,0,,WE (C),1600,0,,,,,,,,,,No
-96677,SUB2,CB,462,,230kV,,,AMPS,,Y,,,SN (N),2000,0,,SE (A),2000,0,,WN (B),2000,0,,WE (C),2000,0,,,,,,,,,,No
-155239,SUB2,DISC,463,,230kV,,,AMPS,,Y,,,SN (N),1600,0,,SE (A),1600,0,,WN (B),1600,0,,WE (C),1600,0,,,,,,,,,,No
-155240,SUB2,DISC,471,,230kV,,,AMPS,,Y,,,SN (N),2000,0,,SE (A),2000,0,,WN (B),2000,0,,WE (C),2000,0,,,,,,,,,,No
-96678,SUB2,CB,472,,230kV,,,AMPS,,Y,,,SN (N),2000,0,,SE (A),2000,0,,WN (B),2000,0,,WE (C),2000,0,,,,,,,,,,No
-155241,SUB2,DISC,473,,230kV,,,AMPS,,Y,,,SN (N),2000,0,,SE (A),2000,0,,WN (B),2000,0,,WE (C),2000,0,,,,,,,,,,No
-155242,SUB2,DISC,481,,230kV,,,AMPS,,Y,,,SN (N),2000,0,,SE (A),2000,0,,WN (B),2000,0,,WE (C),2000,0,,,,,,,,,,No
-96679,SUB2,CB,482,,230kV,,,AMPS,,Y,,,SN (N),2000,0,,SE (A),2000,0,,WN (B),2000,0,,WE (C),2000,0,,,,,,,,,,No
-155243,SUB2,DISC,483,,230kV,,,AMPS,,Y,,,SN (N),2000,0,,SE (A),2000,0,,WN (B),2000,0,,WE (C),2000,0,,,,,,,,,,No
-120518,SUB2,CB,82,,60kV,,,AMPS,,Y,,,SN (N),3000,0,,SE (A),3000,0,,WN (B),3000,0,,WE (C),3000,0,,,,,,,,,,No
-176171,SUB2,COND,CB412 (lowest rated cond),643.7 MCM Cu (hollow core),230kV,,,AMPS,,Y,,,SN (N),786,0,,SE (A),928,4,,WN (B),1222,0,,WE (C),1307,4,,,,,,,,,,No
-166650,SUB2,COND,SUB1-SUB2 - CB 132 (smallest TERM cond),"SN/WN 3/4"" IPS CU; SE/WE 715 KCMIL AL - SPECIAL RATING PER 073137 - INTERIOR RATINGS (3/4"" IPS CU; 715 KCMIL AL - SPECIAL RATING PER 073137; 1113 KCMIL AL - SPECIAL RATING PER 073137)",115kV,,,AMPS,,Y,SUB1-SUB2,,SN (N),725,0,,SE (A),835,4,,WN (B),1005,0,,WE (C),1100,4,,,,,,,,,,Yes
-166651,SUB2,CT,SUB1-SUB2 - CB-132,1000/5*2 TRF = 2000A; Installed 2002,115kV,,,AMPS,,Y,SUB1-SUB2,,SN (N),2000,0,,SE (A),2000,0,,WN (B),2000,0,,WE (C),2000,0,,,,,,,,,,Yes
-166652,SUB2,WTRP,SUB1 - SUB2 - CB-132,,115kV,,,AMPS,,Y,SUB1-SUB2,,SN (N),400,0,,SE (A),400,0,,WN (B),400,0,,WE (C),400,0,,,,,,,,,,Yes
-166653,SUB2,TERM,SUB1-SUB2 - CB-132,,115kV,,,AMPS,,Y,SUB1-SUB2,,SN (N),400,0,27.0,SE (A),400,0,27.0,WN (B),400,0,27.0,WE (C),400,0,27.0,,,,,,,,,Yes
-188242,SUB2,DISC,81,,60kV,,,AMPS,,Y,,,SN (N),3000,0,,SE (A),3000,0,,WN (B),3000,0,,WE (C),3000,0,,,,,,,,,,No
-188239,SUB2,DISC,83,,60kV,,,AMPS,,Y,,,SN (N),3000,0,,SE (A),3000,0,,WN (B),3000,0,,WE (C),3000,0,,,,,,,,,,No
-188246,SUB2,CT,CB 82,2000/5A set at 1000*2.00 TRF (2004) =2000A,60kV,,,AMPS,,Y,,,SN (N),2000,0,,SE (A),2000,0,,WN (B),2000,0,,WE (C),2000,0,,,,,,,,,,No
-188250,SUB2,CT,CB-102,1000/5A set at 1000*2.00 TRF (2004) =2000A,115kV,,,AMPS,,Y,,,SN (N),2000,0,,SE (A),2000,0,,WN (B),2000,0,,WE (C),2000,0,,,,,,,,,,No
-188251,SUB2,BUS,230 kV TRANSFER BUS,,230kV,,,AMPS,,Y,,,SN (N),2550,0,,SE (A),3150,4,,WN (B),3540,0,,WE (C),3960,4,,,,,,,,,,No
-188252,SUB2,CT,CB 412,2000/5A set at 2000*2.00 TRF (2011) =4000A,230kV,,,AMPS,,Y,,,SN (N),4000,0,,SE (A),4000,0,,WN (B),4000,0,,WE (C),4000,0,,,,,,,,,,No
-188253,SUB2,CT,CB 452,2000/5A set at 1600*2.00 TRF (2001) =3200A,230kV,,,AMPS,,Y,,,SN (N),3200,0,,SE (A),3200,0,,WN (B),3200,0,,WE (C),3200,0,,,,,,,,,,No
-188254,SUB2,CT,CB 462,2000/5A set at 2000*1.00 TRF (1988) =2000A,230kV,,,AMPS,,Y,,,SN (N),2000,0,,SE (A),2000,0,,WN (B),2000,0,,WE (C),2000,0,,,,,,,,,,No
-188255,SUB2,CT,CB 472,2000/5A set at 1600*1.00 TRF (1992) =1600A,230kV,,,AMPS,,Y,,,SN (N),1600,0,,SE (A),1600,0,,WN (B),1600,0,,WE (C),1600,0,,,,,,,,,,No
-188256,SUB2,CT,CB 482,2000/5A set at 2000*1.00 TRF (1992) =2000A,230kV,,,AMPS,,Y,,,SN (N),2000,0,,SE (A),2000,0,,WN (B),2000,0,,WE (C),2000,0,,,,,,,,,,No
-190667,SUB2,DISC,131,,115kV,,,AMPS,,Y,SUB1-SUB2,,SN (N),2000,0,,SE (A),2000,0,,WN (B),2000,0,,WE (C),2000,0,,,,,,,,,,No
-193696,SUB2,COND,BK 1 - 115kV BUS 1 To DISC 177,"3/4"" CU TUBE SCH 40 - INTERIOR RATING",115kV,,,AMPS,,Y,,,SN (N),725,0,,SE (A),915,4,,WN (B),1005,0,,WE (C),1150,4,,,,,,,,,,No
-193697,SUB2,COND,BK 1 - 115kV BUS 2 To DISC 179,"3/4"" CU TUBE SCH 40 - INTERIOR RATING",115kV,,,AMPS,,Y,,,SN (N),725,0,,SE (A),915,4,,WN (B),1005,0,,WE (C),1150,4,,,,,,,,,,No
-193699,SUB2,COND,BK 1 - DISC 171 To DISC 179,"3/4"" CU TUBE SCH 40 - INTERIOR RATING",115kV,,,AMPS,,Y,,,SN (N),725,0,,SE (A),915,4,,WN (B),1005,0,,WE (C),1150,4,,,,,,,,,,No
-193700,SUB2,COND,BK 1 - DISC 173 To CB 172,1-1113 AAC - COMPRESSION - INTERIOR RATING,115kV,,,AMPS,,Y,,,SN (N),975,0,,SE (A),1101,4,,WN (B),1378,0,,WE (C),1460,4,,,,,,,,,,No
-193689,SUB2,COND,BK 1 - DISC 171 To CB 172,1-1113 AAC - COMPRESSION - INTERIOR RATING,115kV,,,AMPS,,Y,,,SN (N),975,0,,SE (A),1101,4,,WN (B),1378,0,,WE (C),1460,4,,,,,,,,,,No
-193691,SUB2,COND,BK 1 - DISC 171 To DISC 175,BYPASS - 1-1113 AAC - COMPRESSION - INTERIOR RATING,115kV,,,AMPS,,Y,,,SN (N),975,0,,SE (A),1101,4,,WN (B),1378,0,,WE (C),1460,4,,,,,,,,,,No
+OID,Station Name,Component Type,Component Description,Additional Information,High kV,Low kV,Tertiary kV,Units,Length,ISO Control,Group,T-Line Name,Rating Type,High Rating,Duration,Note #,Rating Type.1,High Rating.1,Duration.1,Note #.1,Rating Type.2,High Rating.2,Duration.2,Note #.2,Rating Type.3,High Rating.3,Duration.3,Note #.3,Rating Type.4,High Rating.4,MVA Rating,MVAr High,MVAr Low,Con,Duration.4,Note #.4,Low Rating,Low Rating.1,Low Rating.2,Low Rating.3,Line Number,Type of Change,Mismatch
+163125.0,SUB1,DISC,1011,,115.0,,,AMPS,,Y,,,SN (N),2000,0,,SE (A),2000,4,,WN (B),2000,0,,WE (C),2000,4,,,,,,,,,,,,,,,"Updated: OID, High kV, Group, High Rating, Duration, High Rating.1, Duration.1, High Rating.2, Duration.2, High Rating.3, Duration.3, Type of Change",Yes
+163127.0,SUB1,CB,1012,,115.0,,,AMPS,,Y,,,SN (N),2000,0,,SE (A),2000,4,,WN (B),2000,0,,WE (C),2000,4,,,,,,,,,,,,,,,"Updated: OID, High kV, Group, High Rating, Duration, High Rating.1, Duration.1, High Rating.2, Duration.2, High Rating.3, Duration.3, Type of Change",Yes
+163126.0,SUB1,DISC,1013,,115.0,,,AMPS,,Y,,,SN (N),2000,0,,SE (A),2000,4,,WN (B),2000,0,,WE (C),2000,4,,,,,,,,,,,,,,,"Updated: OID, High kV, Group, High Rating, Duration, High Rating.1, Duration.1, High Rating.2, Duration.2, High Rating.3, Duration.3, Type of Change",Yes
+163119.0,SUB1,DISC,1015,,115kV,,,AMPS,,Y,SUB1-SUB2,,SN (N),2000,0,,SE (A),2000,0,,WN (B),2000,0,,WE (C),2000,0,,,,,,,,,,,,,,,,
+163128.0,SUB1,DISC,1025,,115kV,,,AMPS,,Y,SUB1-SUB2,,SN (N),2000,0,,SE (A),2000,0,,WN (B),2000,0,,WE (C),2000,0,,,,,,,,,,,,,,,,
+163113.0,SUB1,DISC,1031,,115.0,,,AMPS,,Y,,,SN (N),600,0,,SE (A),600,4,,WN (B),600,0,,WE (C),600,4,,,,,,,,,,,,,,,"Updated: OID, High kV, Group, High Rating, Duration, High Rating.1, Duration.1, High Rating.2, Duration.2, High Rating.3, Duration.3, Type of Change",Yes
+163114.0,SUB1,CB,1032,,115.0,,,AMPS,,Y,,,SN (N),1200,0,,SE (A),1200,4,,WN (B),1200,0,,WE (C),1200,4,,,,,,,,,,,,,,,"Updated: OID, High kV, Group, High Rating, Duration, High Rating.1, Duration.1, High Rating.2, Duration.2, High Rating.3, Duration.3, Type of Change",Yes
+163112.0,SUB1,DISC,1033,,115.0,,,AMPS,,Y,,,SN (N),600,0,,SE (A),600,4,,WN (B),600,0,,WE (C),600,4,,,,,,,,,,,,,,,"Updated: OID, High kV, Group, High Rating, Duration, High Rating.1, Duration.1, High Rating.2, Duration.2, High Rating.3, Duration.3, Type of Change",Yes
+163111.0,SUB1,DISC,1035,,115.0,,,AMPS,,Y,,,SN (N),2000,0,,SE (A),2000,4,,WN (B),2000,0,,WE (C),2000,4,,,,,,,,,,,,,,,"Updated: OID, High kV, Group, High Rating, Duration, High Rating.1, Duration.1, High Rating.2, Duration.2, High Rating.3, Duration.3, Type of Change",Yes
+163109.0,SUB1,WTRP,SUB1-SUB2 - CB 1012 & CB 1032,,115.0,,,AMPS,,Y,,,SN (N),2000,0,,SE (A),2000,4,,WN (B),2000,0,,WE (C),2000,4,,,,,,,,,,,,,,,"Updated: OID, Component Description, High kV, Group, High Rating, Duration, High Rating.1, Duration.1, High Rating.2, Duration.2, High Rating.3, Duration.3, Type of Change",Yes
+163115.0,SUB1,CT,CB 1032,800/5*1 TRF = 800A; Installed 1995,115.0,,,AMPS,,Y,,,SN (N),800,0,,SE (A),800,4,,WN (B),800,0,,WE (C),800,4,,,,,,,,,,,,,,,"Updated: OID, Component Description, Additional Information, High kV, Group, T-Line Name, High Rating, Duration, High Rating.1, Duration.1, High Rating.2, Duration.2, High Rating.3, Duration.3, Type of Change",Yes
+163116.0,SUB1,TERM,SUB1-SUB2 - CB 1012 & CB 1032,,115.0,,,AMPS,,Y,,,SN (N),600,0,11.0,SE (A),600,4,11.0,WN (B),600,0,11.0,WE (C),600,4,11.0,,,,,,,,,,,,,,"Updated: OID, Component Description, High kV, Group, T-Line Name, High Rating, Duration, High Rating.1, Duration.1, High Rating.2, Duration.2, High Rating.3, Duration.3, Note #.3, Type of Change",Yes
+163110.0,SUB1,COND,SUB1-SUB2 - CB 1012 & CB 1032 (smallest TERM cond),"715.5 KCMIL AL - SPECIAL RATING PER 073137 - INTERIOR RATING (715.5 KCMIL AL - SPECIAL RATING PER 073137, 2-1113 KCMIL AL - SPECIAL RATING PER 073137, 3"" SPS AL TUBING)",115.0,,,AMPS,,Y,,,SN (N),742,0,,SE (A),835,4,,WN (B),1039,0,,WE (C),1100,4,,,,,,,,,,,,,,,"Updated: OID, Component Description, Additional Information, High kV, Group, T-Line Name, High Rating, Duration, High Rating.1, Duration.1, High Rating.2, Duration.2, High Rating.3, Duration.3, Type of Change",Yes
+,SUB1,BUS,115 kV MAIN BUS,715.5 kcmil AAC-Interior rating,115.0,,,AMPS,,Y,,,SN (N),631,0,,SE (A),742,4,,WN (B),972,0,,WE (C),1039,4,,,,,,,,,,,,,,,"Updated: OID, High kV, Group, High Rating, Duration, High Rating.1, Duration.1, High Rating.2, Duration.2, High Rating.3, Duration.3, Type of Change",Yes
+187817.0,SUB1,CT,1012,1200/5 set at 400*2 TRF,115kV,,,AMPS,,Y,SUB1-SUB2,,SN (N),800,0,,SE (A),800,0,,WN (B),800,0,,WE (C),800,0,,,,,,,,,,,,,,,,
+155171.0,SUB2,DISC,101,,115kV,,,AMPS,,Y,,,SN (N),2000,0,,SE (A),2000,0,,WN (B),2000,0,,WE (C),2000,0,,,,,,,,,,,,,,,,
+96654.0,SUB2,CB,102,,115kV,,,AMPS,,Y,,,SN (N),2000,0,,SE (A),2000,0,,WN (B),2000,0,,WE (C),2000,0,,,,,,,,,,,,,,,,
+155172.0,SUB2,DISC,103,,115kV,,,AMPS,,Y,,,SN (N),2000,0,,SE (A),2000,0,,WN (B),2000,0,,WE (C),2000,0,,,,,,,,,,,,,,,,
+155173.0,SUB2,DISC,107,,115kV,,,AMPS,,Y,,,SN (N),2000,0,,SE (A),2000,0,,WN (B),2000,0,,WE (C),2000,0,,,,,,,,,,,,,,,,
+182003.0,SUB2,BUS,115 kV BUS 2 ,"2"" IPS CU - INTERIOR RATING (2"" IPS CU, 2-2300 KCMIL AL, 4"" AL Tube - SCH 80)",115.0,,,AMPS,,Y,,,SN (N),1770,0,,SE (A),2235,4,,WN (B),2445,0,,WE (C),2805,4,,,,,,,,,,,,,,,"Updated: OID, Component Description, Additional Information, High kV, Group, High Rating, Duration, High Rating.1, Duration.1, High Rating.2, Duration.2, High Rating.3, Duration.3, Type of Change",Yes
+173428.0,SUB2,BUS,115 kV BUS 1,"2"" IPS CU - INTERIOR RATING (2"" IPS CU, 2-2300 KCMIL AL, 4"" AL Tube - SCH 80)",115.0,,,AMPS,,Y,,,SN (N),1770,0,,SE (A),2235,4,,WN (B),2445,0,,WE (C),2805,4,,,,,,,,,,,,,,,"Updated: OID, Component Description, Additional Information, High kV, Group, High Rating, Duration, High Rating.1, Duration.1, High Rating.2, Duration.2, High Rating.3, Duration.3, Type of Change",Yes
+96655.0,SUB2,CB,132,,115.0,,,AMPS,,Y,,,SN (N),2000,0,,SE (A),2000,4,,WN (B),2000,0,,WE (C),2000,4,,,,,,,,,,,,,,,"Updated: OID, High kV, Group, High Rating, Duration, High Rating.1, Duration.1, High Rating.2, Duration.2, High Rating.3, Duration.3",Yes
+155179.0,SUB2,DISC,133,,115.0,,,AMPS,,Y,,,SN (N),2000,0,,SE (A),2000,4,,WN (B),2000,0,,WE (C),2000,4,,,,,,,,,,,,,,,"Updated: OID, High kV, Group, High Rating, Duration, High Rating.1, Duration.1, High Rating.2, Duration.2, High Rating.3, Duration.3, Type of Change",Yes
+155180.0,SUB2,DISC,135,,115.0,,,AMPS,,Y,,,SN (N),2000,0,,SE (A),2000,4,,WN (B),2000,0,,WE (C),2000,4,,,,,,,,,,,,,,,"Updated: OID, High kV, Group, High Rating, Duration, High Rating.1, Duration.1, High Rating.2, Duration.2, High Rating.3, Duration.3, Type of Change",Yes
+155181.0,SUB2,DISC,137,,115.0,,,AMPS,,Y,,,SN (N),600,0,,SE (A),600,4,,WN (B),600,0,,WE (C),600,4,,,,,,,,,,,,,,,"Updated: OID, High kV, Group, High Rating, Duration, High Rating.1, Duration.1, High Rating.2, Duration.2, High Rating.3, Duration.3",Yes
+155182.0,SUB2,DISC,139,,115.0,,,AMPS,,Y,,,SN (N),600,0,,SE (A),600,4,,WN (B),600,0,,WE (C),600,4,,,,,,,,,,,,,,,"Updated: OID, High kV, Group, High Rating, Duration, High Rating.1, Duration.1, High Rating.2, Duration.2, High Rating.3, Duration.3",Yes
+170128.0,SUB2,DISC,17,,60kV,,,AMPS,,Y,,,SN (N),3000,0,,SE (A),3000,0,,WN (B),3000,0,,WE (C),3000,0,,,,,,,,,,,,,,,,
+166697.0,SUB2,COND,BK 1 - DISC 171 To XFMR BK 1 LS,1-1113 AAC - COMPRESSION - INTERIOR RATING,115kV,,,AMPS,,Y,,,SN (N),975,0,,SE (A),1101,4,,WN (B),1378,0,,WE (C),1460,4,,,,,,,,,,,,,,,,
+166692.0,SUB2,COND,BK 1 - DISC 173 To DISC 177 & DISC 179,"3/4"" CU TUBE SCH 40 - INTERIOR RATING",115kV,,,AMPS,,Y,,,SN (N),725,0,,SE (A),915,4,,WN (B),1005,0,,WE (C),1150,4,,,,,,,,,,,,,,,,
+170129.0,SUB2,DISC,19,,60kV,,,AMPS,,Y,,,SN (N),3000,0,,SE (A),3000,0,,WN (B),3000,0,,WE (C),3000,0,,,,,,,,,,,,,,,,
+96675.0,SUB2,CB,412,,230kV,,,AMPS,,Y,,,SN (N),2000,0,,SE (A),2000,0,,WN (B),2000,0,,WE (C),2000,0,,,,,,,,,,,,,,,,
+155236.0,SUB2,DISC,413,,230kV,,,AMPS,,Y,,,SN (N),1600,0,,SE (A),1600,0,,WN (B),1600,0,,WE (C),1600,0,,,,,,,,,,,,,,,,
+155237.0,SUB2,DISC,417,,230kV,,,AMPS,,Y,,,SN (N),1200,0,,SE (A),1200,0,,WN (B),1200,0,,WE (C),1200,0,,,,,,,,,,,,,,,,
+96676.0,SUB2,CB,452,,230kV,,,AMPS,,Y,,,SN (N),2000,0,,SE (A),2000,0,,WN (B),2000,0,,WE (C),2000,0,,,,,,,,,,,,,,,,
+155238.0,SUB2,DISC,453,,230kV,,,AMPS,,Y,,,SN (N),1600,0,,SE (A),1600,0,,WN (B),1600,0,,WE (C),1600,0,,,,,,,,,,,,,,,,
+96677.0,SUB2,CB,462,,230kV,,,AMPS,,Y,,,SN (N),2000,0,,SE (A),2000,0,,WN (B),2000,0,,WE (C),2000,0,,,,,,,,,,,,,,,,
+155239.0,SUB2,DISC,463,,230kV,,,AMPS,,Y,,,SN (N),1600,0,,SE (A),1600,0,,WN (B),1600,0,,WE (C),1600,0,,,,,,,,,,,,,,,,
+155240.0,SUB2,DISC,471,,230kV,,,AMPS,,Y,,,SN (N),2000,0,,SE (A),2000,0,,WN (B),2000,0,,WE (C),2000,0,,,,,,,,,,,,,,,,
+96678.0,SUB2,CB,472,,230kV,,,AMPS,,Y,,,SN (N),2000,0,,SE (A),2000,0,,WN (B),2000,0,,WE (C),2000,0,,,,,,,,,,,,,,,,
+155241.0,SUB2,DISC,473,,230kV,,,AMPS,,Y,,,SN (N),2000,0,,SE (A),2000,0,,WN (B),2000,0,,WE (C),2000,0,,,,,,,,,,,,,,,,
+155242.0,SUB2,DISC,481,,230kV,,,AMPS,,Y,,,SN (N),2000,0,,SE (A),2000,0,,WN (B),2000,0,,WE (C),2000,0,,,,,,,,,,,,,,,,
+96679.0,SUB2,CB,482,,230kV,,,AMPS,,Y,,,SN (N),2000,0,,SE (A),2000,0,,WN (B),2000,0,,WE (C),2000,0,,,,,,,,,,,,,,,,
+155243.0,SUB2,DISC,483,,230kV,,,AMPS,,Y,,,SN (N),2000,0,,SE (A),2000,0,,WN (B),2000,0,,WE (C),2000,0,,,,,,,,,,,,,,,,
+120518.0,SUB2,CB,82,,60kV,,,AMPS,,Y,,,SN (N),3000,0,,SE (A),3000,0,,WN (B),3000,0,,WE (C),3000,0,,,,,,,,,,,,,,,,
+176171.0,SUB2,COND,CB412 (lowest rated cond),643.7 MCM Cu (hollow core),230kV,,,AMPS,,Y,,,SN (N),786,0,,SE (A),928,4,,WN (B),1222,0,,WE (C),1307,4,,,,,,,,,,,,,,,,
+166650.0,SUB2,COND,SUB1-SUB2 - CB 132 (smallest TERM cond),"SN/WN 3/4"" IPS CU; SE/WE 715 KCMIL AL - SPECIAL RATING PER 073137 - INTERIOR RATINGS (3/4"" IPS CU, 715 KCMIL AL - SPECIAL RATING PER 073137, 1113 KCMIL AL - SPECIAL RATING PER 073137)",115.0,,,AMPS,,Y,,,SN (N),725,0,,SE (A),835,4,,WN (B),1005,0,,WE (C),1100,4,,,,,,,,,,,,,,,"Updated: OID, Additional Information, High kV, Group, High Rating, Duration, High Rating.1, Duration.1, High Rating.2, Duration.2, High Rating.3, Duration.3, Type of Change",Yes
+166651.0,SUB2,CT,CB 132,1000/5*2 TRF = 2000A; Installed 2002,115.0,,,AMPS,,Y,,,SN (N),2000,0,,SE (A),2000,4,,WN (B),2000,0,,WE (C),2000,4,,,,,,,,,,,,,,,"Updated: OID, Component Description, High kV, Group, High Rating, Duration, High Rating.1, Duration.1, High Rating.2, Duration.2, High Rating.3, Duration.3, Type of Change",Yes
+166652.0,SUB2,WTRP,SUB1-SUB2 - CB 132,,115.0,,,AMPS,,Y,,,SN (N),400,0,,SE (A),400,4,,WN (B),400,0,,WE (C),400,4,,,,,,,,,,,,,,,"Updated: OID, Component Description, High kV, Group, High Rating, Duration, High Rating.1, Duration.1, High Rating.2, Duration.2, High Rating.3, Duration.3, Type of Change",Yes
+166653.0,SUB2,TERM,SUB1-SUB2 - CB 132,,115.0,,,AMPS,,Y,,,SN (N),400,0,27.0,SE (A),400,4,27.0,WN (B),400,0,27.0,WE (C),400,4,27.0,,,,,,,,,,,,,,"Updated: OID, Component Description, High kV, Group, High Rating, Duration, High Rating.1, Duration.1, High Rating.2, Duration.2, High Rating.3, Duration.3, Type of Change",Yes
+188242.0,SUB2,DISC,81,,60kV,,,AMPS,,Y,,,SN (N),3000,0,,SE (A),3000,0,,WN (B),3000,0,,WE (C),3000,0,,,,,,,,,,,,,,,,
+188239.0,SUB2,DISC,83,,60kV,,,AMPS,,Y,,,SN (N),3000,0,,SE (A),3000,0,,WN (B),3000,0,,WE (C),3000,0,,,,,,,,,,,,,,,,
+188246.0,SUB2,CT,CB 82,2000/5A set at 1000*2.00 TRF (2004) =2000A,60kV,,,AMPS,,Y,,,SN (N),2000,0,,SE (A),2000,0,,WN (B),2000,0,,WE (C),2000,0,,,,,,,,,,,,,,,,
+188250.0,SUB2,CT,CB-102,1000/5A set at 1000*2.00 TRF (2004) =2000A,115kV,,,AMPS,,Y,,,SN (N),2000,0,,SE (A),2000,0,,WN (B),2000,0,,WE (C),2000,0,,,,,,,,,,,,,,,,
+188251.0,SUB2,BUS,230 kV TRANSFER BUS,,230kV,,,AMPS,,Y,,,SN (N),2550,0,,SE (A),3150,4,,WN (B),3540,0,,WE (C),3960,4,,,,,,,,,,,,,,,,
+188252.0,SUB2,CT,CB 412,2000/5A set at 2000*2.00 TRF (2011) =4000A,230kV,,,AMPS,,Y,,,SN (N),4000,0,,SE (A),4000,0,,WN (B),4000,0,,WE (C),4000,0,,,,,,,,,,,,,,,,
+188253.0,SUB2,CT,CB 452,2000/5A set at 1600*2.00 TRF (2001) =3200A,230kV,,,AMPS,,Y,,,SN (N),3200,0,,SE (A),3200,0,,WN (B),3200,0,,WE (C),3200,0,,,,,,,,,,,,,,,,
+188254.0,SUB2,CT,CB 462,2000/5A set at 2000*1.00 TRF (1988) =2000A,230kV,,,AMPS,,Y,,,SN (N),2000,0,,SE (A),2000,0,,WN (B),2000,0,,WE (C),2000,0,,,,,,,,,,,,,,,,
+188255.0,SUB2,CT,CB 472,2000/5A set at 1600*1.00 TRF (1992) =1600A,230kV,,,AMPS,,Y,,,SN (N),1600,0,,SE (A),1600,0,,WN (B),1600,0,,WE (C),1600,0,,,,,,,,,,,,,,,,
+188256.0,SUB2,CT,CB 482,2000/5A set at 2000*1.00 TRF (1992) =2000A,230kV,,,AMPS,,Y,,,SN (N),2000,0,,SE (A),2000,0,,WN (B),2000,0,,WE (C),2000,0,,,,,,,,,,,,,,,,
+190667.0,SUB2,DISC,131,,115kV,,,AMPS,,Y,SUB1-SUB2,,SN (N),2000,0,,SE (A),2000,0,,WN (B),2000,0,,WE (C),2000,0,,,,,,,,,,,,,,,,
+193696.0,SUB2,COND,BK 1 - 115kV BUS 1 To DISC 177,"3/4"" CU TUBE SCH 40 - INTERIOR RATING",115kV,,,AMPS,,Y,,,SN (N),725,0,,SE (A),915,4,,WN (B),1005,0,,WE (C),1150,4,,,,,,,,,,,,,,,,
+193697.0,SUB2,COND,BK 1 - 115kV BUS 2 To DISC 179,"3/4"" CU TUBE SCH 40 - INTERIOR RATING",115kV,,,AMPS,,Y,,,SN (N),725,0,,SE (A),915,4,,WN (B),1005,0,,WE (C),1150,4,,,,,,,,,,,,,,,,
+193699.0,SUB2,COND,BK 1 - DISC 171 To DISC 179,"3/4"" CU TUBE SCH 40 - INTERIOR RATING",115kV,,,AMPS,,Y,,,SN (N),725,0,,SE (A),915,4,,WN (B),1005,0,,WE (C),1150,4,,,,,,,,,,,,,,,,
+193700.0,SUB2,COND,BK 1 - DISC 173 To CB 172,1-1113 AAC - COMPRESSION - INTERIOR RATING,115kV,,,AMPS,,Y,,,SN (N),975,0,,SE (A),1101,4,,WN (B),1378,0,,WE (C),1460,4,,,,,,,,,,,,,,,,
+193689.0,SUB2,COND,BK 1 - DISC 171 To CB 172,1-1113 AAC - COMPRESSION - INTERIOR RATING,115kV,,,AMPS,,Y,,,SN (N),975,0,,SE (A),1101,4,,WN (B),1378,0,,WE (C),1460,4,,,,,,,,,,,,,,,,
+193691.0,SUB2,COND,BK 1 - DISC 171 To DISC 175,BYPASS - 1-1113 AAC - COMPRESSION - INTERIOR RATING,115kV,,,AMPS,,Y,,,SN (N),975,0,,SE (A),1101,4,,WN (B),1378,0,,WE (C),1460,4,,,,,,,,,,,,,,,,

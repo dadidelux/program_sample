@@ -24,6 +24,29 @@ HIGHLIGHTED_FILE = OUTPUT_DIR / "SUB1-SUB2 115kV_highlighted.csv"
 UPDATED_FILE = OUTPUT_DIR / "SUB1-SUB2 115kV_updated.csv"
 SUMMARY_FILE = OUTPUT_DIR / "SUB1-SUB2 115kV_summary_report.csv"
 
+# Column mapping: CSV column -> Excel column (source of truth naming)
+# The Excel file is the source of truth, so we rename CSV columns to match Excel naming
+COLUMN_RENAME_MAP = {
+    'AMP Rating': 'High Rating',      # SN (N)
+    'AMP Rating.1': 'High Rating.1',  # SE (A)
+    'AMP Rating.2': 'High Rating.2',  # WN (B)
+    'AMP Rating.3': 'High Rating.3',  # WE (C)
+    'AMP Rating.4': 'High Rating.4',  # 5th rating type (CSV only, doesn't exist in Excel)
+    'High KV': 'High kV',
+    'Low KV': 'Low kV',
+    'Tertiary KV': 'Tertiary kV',
+}
+
+# Columns that exist in Excel but not in CSV (will be added with NaN initially)
+EXCEL_ONLY_COLUMNS = [
+    'Low Rating',      # SN (N)
+    'Low Rating.1',    # SE (A)
+    'Low Rating.2',    # WN (B)
+    'Low Rating.3',    # WE (C)
+    'Line Number',
+    'Type of Change',  # Will be populated during update
+]
+
 
 def load_csv_files():
     """Load SUB1 and SUB2 CSV files."""
@@ -58,7 +81,7 @@ def load_tls_file():
 
 
 def merge_csv_files(sub1_df, sub2_df):
-    """Merge SUB1 and SUB2 dataframes."""
+    """Merge SUB1 and SUB2 dataframes and standardize to Excel column names."""
     print("\nMerging CSV files...")
 
     # Concatenate dataframes
@@ -74,6 +97,27 @@ def merge_csv_files(sub1_df, sub2_df):
         print(f"  - Removed {duplicates_removed} duplicate(s)")
 
     print(f"  - Final merged rows: {len(merged_df)}")
+
+    # Rename CSV columns to match Excel naming convention (source of truth)
+    print("\nStandardizing column names to match Excel (source of truth)...")
+    columns_renamed = {k: v for k, v in COLUMN_RENAME_MAP.items() if k in merged_df.columns}
+    if columns_renamed:
+        merged_df = merged_df.rename(columns=columns_renamed)
+        print(f"  - Renamed {len(columns_renamed)} columns:")
+        for old, new in columns_renamed.items():
+            print(f"    {old} -> {new}")
+
+    # Add Excel-only columns that don't exist in CSV
+    print("\nAdding Excel-only columns...")
+    added_count = 0
+    for col in EXCEL_ONLY_COLUMNS:
+        if col not in merged_df.columns:
+            merged_df[col] = None
+            added_count += 1
+            print(f"  - Added: {col}")
+
+    if added_count == 0:
+        print("  - No new columns to add")
 
     return merged_df
 
@@ -116,12 +160,13 @@ def compare_rows(merged_row, tls_row):
     """
     Compare two rows and return list of differences.
     Returns list of tuples: (column_name, merged_value, tls_value)
+    Note: Columns have already been renamed to match Excel naming convention.
     """
     differences = []
 
-    # Compare all columns except system columns
+    # Compare all columns that exist in both rows
     for col in merged_row.index:
-        if col in ['Mismatch', 'Type of Change']:
+        if col in ['Mismatch']:  # Skip system columns (but not 'Type of Change' - we want to compare it)
             continue
 
         merged_val = merged_row[col]
@@ -172,30 +217,33 @@ def add_mismatch_column(merged_df, tls_df):
 
 
 def update_with_tls_data(merged_df, tls_df):
-    """Update mismatched entries with TLS data and track changes."""
-    print("\nUpdating mismatched entries with TLS data...")
+    """Update all entries with TLS data (source of truth) and track changes."""
+    print("\nUpdating with TLS data (source of truth)...")
 
-    merged_df['Type of Change'] = ''
+    # Initialize Type of Change if not already present
+    if 'Type of Change' not in merged_df.columns:
+        merged_df['Type of Change'] = ''
+
     changes_log = []
     update_count = 0
+    not_in_excel_count = 0
 
     for idx, row in merged_df.iterrows():
-        if row['Mismatch'] != 'Yes':
-            continue
-
         tls_match = match_component(row, tls_df)
 
         if tls_match is None:
+            # Component not found in Excel - retain CSV data as-is
+            not_in_excel_count += 1
             continue
 
-        # Find differences and update
+        # Find differences and update ALL fields from Excel (source of truth)
         differences = compare_rows(row, tls_match)
 
         if differences:
             updated_columns = []
 
             for col, old_val, new_val in differences:
-                # Update the value
+                # Update the value with Excel data
                 merged_df.at[idx, col] = new_val
                 updated_columns.append(col)
 
@@ -207,12 +255,19 @@ def update_with_tls_data(merged_df, tls_df):
                     'New Value': new_val
                 })
 
-            # Update Type of Change
-            change_type = f"Updated: {', '.join(updated_columns)}"
-            merged_df.at[idx, 'Type of Change'] = change_type
-            update_count += 1
+            # Update Type of Change column
+            if updated_columns:
+                change_type = f"Updated: {', '.join(updated_columns)}"
+                merged_df.at[idx, 'Type of Change'] = change_type
+                # Mark as mismatch
+                merged_df.at[idx, 'Mismatch'] = 'Yes'
+                update_count += 1
+        else:
+            # No differences - data matches Excel
+            merged_df.at[idx, 'Mismatch'] = 'No'
 
-    print(f"  - Updated {update_count} component(s)")
+    print(f"  - Updated {update_count} component(s) with Excel data")
+    print(f"  - Components not in Excel (retained CSV data): {not_in_excel_count}")
     print(f"  - Total field changes: {len(changes_log)}")
 
     return merged_df, changes_log
@@ -246,22 +301,22 @@ def main():
     sub1_df, sub2_df = load_csv_files()
     tls_df = load_tls_file()
 
-    # Step 2: Merge CSV files
+    # Step 2: Merge CSV files and standardize to Excel column names
     merged_df = merge_csv_files(sub1_df, sub2_df)
 
-    # Save merged file
+    # Save merged file (with standardized column names)
     merged_df.to_csv(MERGED_FILE, index=False)
     print(f"\n[OK] Saved: {MERGED_FILE.name}")
 
-    # Step 3: Add mismatch column
-    highlighted_df = add_mismatch_column(merged_df.copy(), tls_df)
+    # Step 3: Update with Excel data (source of truth) and identify mismatches
+    # This will populate Excel-only columns and mark mismatches
+    updated_df, changes_log = update_with_tls_data(merged_df.copy(), tls_df)
 
-    # Save highlighted file
-    highlighted_df.to_csv(HIGHLIGHTED_FILE, index=False)
+    # Save highlighted file (with Mismatch column)
+    updated_df.to_csv(HIGHLIGHTED_FILE, index=False)
     print(f"[OK] Saved: {HIGHLIGHTED_FILE.name}")
 
-    # Step 4: Update with TLS data
-    updated_df, changes_log = update_with_tls_data(highlighted_df.copy(), tls_df)
+    # The updated file is the same as highlighted (already contains Excel data)
 
     # Save updated file
     updated_df.to_csv(UPDATED_FILE, index=False)
